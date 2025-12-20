@@ -112,6 +112,35 @@ if section == "Dataset":
           captures frames, and allows saving them as images for dataset creation.
         """
     )
+    st.subheader("Capturing Images")
+    st.code("""
+            IMAGES_PATH = os.path.join('data','images')
+            number_images = 30
+            cap = cv2.VideoCapture(1)
+            for imgnum in range(number_images):
+            print('Collecting image {}'.format(imgnum))
+            ret, frame = cap.read()
+            imgname = os.path.join(IMAGES_PATH,f'{str(uuid.uuid1())}.jpg')
+            cv2.imwrite(imgname, frame)
+            cv2.imshow('frame', frame)
+            time.sleep(0.5)
+
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+               break
+            cap.release()
+            cv2.destroyAllWindows()""",language="python"
+           )
+    st.markdown("""
+    <p style='text-align: justify;'>
+    This code connects to the webcam, captures 30 images, saves each one with a unique filename, 
+    and displays the frame while collecting. A short delay is added between captures, and the user 
+    can press <code>q</code> to stop early. The images are stored in the <code>data/images</code> folder.
+    </p>
+    """,
+    unsafe_allow_html=True
+    )
+
+
     
 
 
