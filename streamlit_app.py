@@ -146,34 +146,34 @@ if section == "Dataset":
     st.markdown("""<p style='text-align: justify;'> Get into labelme to annotate images of dataset</p>""",unsafe_allow_html=True)
     st.image('i3.png',width=300,caption="Bounding box on human face")
 
-st.subheader("📊 Dataset Segmentation")
+    st.subheader("📊 Dataset Segmentation")
 
-st.markdown(
-    """
-    <p style='text-align: justify;'>
-    A total of <b>100 images</b> were captured using the webcam for building the dataset. 
-    To ensure proper training and evaluation of the face detection model, the dataset was 
-    divided into three subsets:
-    </p>
-    """,
-    unsafe_allow_html=True
-   )
-st.code("""
-   for folder in ['train','test','val']:
-    for file in os.listdir(os.path.join('data', folder, 'images')):
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        A total of <b>100 images</b> were captured using the webcam for building the dataset. 
+        To ensure proper training and evaluation of the face detection model, the dataset was 
+        divided into three subsets:
+        </p>
+        """,
+        unsafe_allow_html=True
+       )
+    st.code("""
+     for folder in ['train','test','val']:
+      for file in os.listdir(os.path.join('data', folder, 'images')):
         
         filename = file.split('.')[0]+'.json'
         existing_filepath = os.path.join('data','labels', filename)
         if os.path.exists(existing_filepath): 
             new_filepath = os.path.join('data',folder,'labels',filename)
             os.replace(existing_filepath, new_filepath)""", language="python")
-st.markdown(
-    """
-    - **Training Set (70 images)** → Used to train the model and learn feature representations.  
-    - **Testing Set (15 images)** → Used to evaluate the model during development and measure performance.  
-    - **Validation Set (15 images)** → Used to fine-tune hyperparameters and prevent overfitting.  
-    """
-  )
+    st.markdown(
+      """
+       - **Training Set (70 images)** → Used to train the model and learn feature representations.  
+       - **Testing Set (15 images)** → Used to evaluate the model during development and measure performance.  
+       - **Validation Set (15 images)** → Used to fine-tune hyperparameters and prevent overfitting.  
+      """
+     )
 
 
 
