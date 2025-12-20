@@ -141,6 +141,135 @@ if section == "Dataset":
     )
 
 
+
+if section == "Model Architecture":
+
+    st.header("🧠 Convolutional Neural Network (CNN) Fundamentals")
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        A Convolutional Neural Network (CNN) is a specialized type of neural network designed to process
+        image data. Unlike traditional neural networks, CNNs preserve spatial information such as height,
+        width, and color channels, allowing them to detect visual patterns like edges, shapes, and objects.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.subheader("How CNNs Process Images")
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        Images are represented as numerical tensors. A CNN applies convolutional filters that slide over
+        the image to extract meaningful features. Early layers detect simple patterns such as edges,
+        while deeper layers detect complex structures like facial features.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.image(
+        "images/cnn_convolution.png",
+        caption="Convolution operation using a sliding filter",
+        use_column_width=True
+    )
+
+    st.subheader("Pooling and Feature Reduction")
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        Pooling layers reduce the spatial dimensions of feature maps while preserving the most important
+        information. Max Pooling selects the maximum value from a region, making the network robust to
+        small shifts and reducing computation.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.image(
+        "images/max_pooling.png",
+        caption="Max Pooling operation",
+        use_column_width=True
+    )
+
+    st.header("🏗️ Model Architecture Overview")
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        The face detection model follows a multi-task learning architecture with a shared convolutional
+        backbone and two parallel output heads. The shared backbone extracts visual features, while the
+        heads perform classification and bounding box regression.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.subheader("Backbone Network: VGG16")
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        VGG16 is a deep convolutional neural network pretrained on the ImageNet dataset. In this project,
+        it is used as a feature extractor by removing its fully connected layers and retaining only the
+        convolutional layers. This allows the model to leverage powerful learned visual representations.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.image(
+        "images/vgg16_architecture.png",
+        caption="VGG16 convolutional backbone",
+        use_column_width=True
+    )
+
+    st.subheader("Global Max Pooling")
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        Global Max Pooling converts the final convolutional feature maps into a fixed-length feature vector
+        by selecting the maximum activation from each feature map. This summarizes the most important
+        visual signals detected by the network.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.subheader("Classification Head")
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        The classification head determines whether a face exists in the image. It uses fully connected
+        layers to analyze the extracted features and outputs a probability using a sigmoid activation
+        function.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.subheader("Bounding Box Regression Head")
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        The regression head predicts the bounding box coordinates of the detected face. The output consists
+        of four normalized values representing the top-left and bottom-right corners of the bounding box.
+        A sigmoid activation ensures outputs remain within valid bounds.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.image(
+        "images/model_architecture.png",
+        caption="Complete face detection model architecture",
+        use_column_width=True
+    )
+
     
 
 
