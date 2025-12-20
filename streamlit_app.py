@@ -3,35 +3,17 @@ import streamlit as st
 st.set_page_config(page_title='Face Detection Project', layout='wide')
 st.title('Face detection Model')
 
-st.markdown("""
-<style>
-.navbar {
-    display: flex;
-    justify-content: space-around;
-    background-color: #2c3e50;
-    padding: 10px;
-}
-.navbar a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-.navbar a:hover {
-    color: #f39c12;
-}
-</style>
 
-<div class="navbar">
-    <a href="#intro">Introduction</a>
-    <a href="#dataset">Dataset</a>
-    <a href="#model">Model Architecture</a>
-    <a href="#training">Training</a>
-    <a href="#results">Results</a>
-    <a href="#demo">Live Demo</a>
-    <a href="#conclusion">Conclusion</a>
-</div>
-""", unsafe_allow_html=True)
+from streamlit_option_menu import option_menu
 
+with st.sidebar:
+    section = option_menu(
+        "Navigation",
+        ["Introduction", "Dataset", "Model Architecture", "Training", "Results", "Live Demo", "Conclusion"],
+        icons=["house", "database", "diagram-3", "gear", "bar-chart", "camera", "check2-circle"],
+        menu_icon="cast",
+        default_index=0,
+    )
 
 
 if section == "Introduction":
