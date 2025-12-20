@@ -18,3 +18,12 @@ section = st.sidebar.radio(
     ]
 )
 
+if section == "Introduction":
+    st.header("Introduction")
+    st.write("""
+    Face detection is a computer vision task that identifies human faces in images or videos.
+    This project implements a deep learning-based face detection model capable of detecting
+    faces under different lighting and pose conditions.
+    """)
+
+
