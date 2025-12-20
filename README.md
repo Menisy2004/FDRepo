@@ -1,4 +1,4 @@
-# 📦 Streamlit App Starter Kit 
+# Face Detection Machine Learning Model
 ```
 ⬆️ (Replace above with your app's name)
 ```
