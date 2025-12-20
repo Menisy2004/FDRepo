@@ -235,44 +235,14 @@ if section == "Model Architecture":
         unsafe_allow_html=True
     )
 
-    st.subheader("VGG16 Architecture Diagram")
-
-st.markdown(
-    """
-    <p style='text-align: justify;'>
-    The following diagram illustrates the full VGG16 architecture, showing the stacked convolutional
-    layers, pooling layers, and the depth progression used for feature extraction.
-    </p>
-    """,
-    unsafe_allow_html=True
-)
-
-st.image(
-    "vgg-16.bak.png",
-    caption="VGG16 Architecture (Convolutional Backbone)",
-    use_column_width=True
-)
-
-
-st.markdown(
-        """
-        - **Convolutional Layers (3×3 Filters)**  
-          These layers slide small filters over the image to detect local patterns such as edges,
-          corners, and textures. As the network goes deeper, the filters learn increasingly complex
-          visual features like eyes, noses, and facial contours.
-
-        - **ReLU Activation Function**  
-          After each convolution, the Rectified Linear Unit (ReLU) introduces non-linearity.
-          This allows the network to learn complex relationships and prevents vanishing gradients.
-
-        - **Max Pooling Layers (2×2)**  
-          Pooling layers reduce the spatial size of feature maps by selecting the maximum value
-          in a small region. This helps reduce computation, control overfitting, and make the model
-          robust to small translations in the image.
-        """
+    # VGG16 Architecture Image
+    st.image(
+        "images/vgg16_architecture.png",
+        caption="VGG16 convolutional backbone",
+        use_column_width=True
     )
 
-st.subheader("Depth and Feature Extraction")
+    st.subheader("Depth and Feature Extraction")
 
     st.markdown(
         """
