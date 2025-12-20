@@ -1,7 +1,7 @@
 import streamlit as st
 
 st.set_page_config(page_title='Face Detection Project', layout='wide')
-st.title('😄 Face detection Model')
+st.title('Face detection Model')
 
 section = st.sidebar.radio(
     "Go to",
@@ -30,6 +30,9 @@ if section == "Introduction":
     """,
     unsafe_allow_html=True
 )
+
+if section == "Dataset":
+    st.header("Tools for Dataset Generation")
 
 
 
