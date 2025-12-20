@@ -3,18 +3,13 @@ import streamlit as st
 st.set_page_config(page_title='Face Detection Project', layout='wide')
 st.title('Face detection Model')
 
-section = st.sidebar.radio(
-    "Go to",
-    [
-        "Introduction",
-        "Dataset",
-        "Model Architecture",
-        "Training",
-        "Results",
-        "Live Demo",
-        "Conclusion"
-    ]
-)
+menu = ["Introduction", "Dataset", "Model Architecture", "Training", "Results", "Live Demo", "Conclusion"]
+cols = st.columns(len(menu))
+
+for i, item in enumerate(menu):
+    if cols[i].button(item):
+        section = item
+
 
 if section == "Introduction":
     st.header("Introduction")
