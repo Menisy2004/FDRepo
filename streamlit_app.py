@@ -4,12 +4,10 @@ st.set_page_config(page_title='Face Detection Project', layout='wide')
 st.title('Face detection Model')
 
 
-menu = ["Introduction", "Dataset", "Model Architecture", "Training", "Results", "Live Demo", "Conclusion"]
-cols = st.columns(len(menu))
-
-for i, item in enumerate(menu):
-    if cols[i].button(item):
-        section = item
+section = st.sidebar.selectbox(
+    "Navigate to section:",
+    ["Introduction", "Dataset", "Model Architecture", "Training", "Results", "Live Demo", "Conclusion"]
+)
 
 
 
