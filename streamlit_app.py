@@ -72,3 +72,46 @@ if section == "Dataset":
           such as rotation, flipping, scaling, and brightness adjustments to training images.
         """
     )
+    st.header("📸Image Collection using OpenCV")
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        OpenCV (cv2) provides direct access to the webcam, allowing us to capture images or video frames 
+        in real time. This is essential for building datasets dynamically, where each frame can be saved 
+        and later annotated for training. The following code snippet shows the libraries used to support 
+        this process.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.subheader("Imports")
+    st.code(
+        """import os
+           import time
+           import uuid
+           import cv2""",
+           language="python"
+    )
+
+    st.subheader("Explanation of Libraries")
+    st.markdown(
+        """
+        - **os**  
+          Provides functions to interact with the operating system, such as creating folders 
+          to store captured images.
+        - **time**  
+          Used to manage delays or timestamps, ensuring frames are captured at specific intervals.
+
+        - **uuid**  
+          Generates unique identifiers for each captured image, preventing filename conflicts 
+          and making dataset organization easier.
+
+        - **cv2 (OpenCV)**  
+          The core library for computer vision tasks. Here, it connects to the webcam, 
+          captures frames, and allows saving them as images for dataset creation.
+        """
+    )
+    
+
+
