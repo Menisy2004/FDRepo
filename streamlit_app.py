@@ -218,6 +218,16 @@ if section == "Dataset":
     """
   )
 
+    st.subheader("📊 Results After Augmentation")
+
+    st.markdown(
+        """
+        - **Training Set** → 4,140 images  
+        - **Testing Set** → 900 images  
+        - **Validation Set** → 900 images  
+        - Total images 5940 images
+        """
+    )
 
 
 
