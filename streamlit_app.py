@@ -250,7 +250,7 @@ st.markdown(
         """
     )
 
-    st.subheader("Depth and Feature Extraction")
+st.subheader("Depth and Feature Extraction")
 
     st.markdown(
         """
