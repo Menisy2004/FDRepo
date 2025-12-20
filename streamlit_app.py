@@ -175,6 +175,48 @@ if section == "Dataset":
       """
      )
 
+    st.subheader("🖼Apply Image Augmentation on Images and Labels using Albumentations")
+    st.markdown(
+    """
+    <p style='text-align: justify;'>
+    To improve model robustness and increase the effective dataset size, 
+    we apply <b>data augmentation</b> using the Albumentations library. 
+    Augmentation generates new variations of existing images by applying 
+    random transformations such as cropping, flipping, brightness adjustment, 
+    and color shifting. This helps the model generalize better to unseen data 
+    and reduces overfitting.
+    </p>
+    """,
+    unsafe_allow_html=True
+    )
+
+   st.subheader("Code Snippet")
+   st.code(
+    """augmentor = alb.Compose([
+    alb.RandomCrop(width=450, height=450),
+    alb.HorizontalFlip(p=0.5),
+    alb.RandomBrightnessContrast(p=0.2),
+    alb.RandomGamma(p=0.2),
+    alb.RGBShift(p=0.2),
+    alb.VerticalFlip(p=0.5)],
+    bbox_params=alb.BboxParams(format='albumentations',
+                               label_fields=['class_labels']))
+    """,
+    language="python"
+    )
+
+   st.subheader("Explanation of Transformations")
+   st.markdown(
+    """
+    - **RandomCrop** → Crops images to a fixed size (450×450), focusing on different regions.  
+    - **HorizontalFlip** → Flips images left-to-right with 50% probability.  
+    - **RandomBrightnessContrast** → Adjusts brightness and contrast randomly (20% chance).  
+    - **RandomGamma** → Alters gamma values to simulate lighting changes.  
+    - **RGBShift** → Randomly shifts color channels to add variation.  
+    - **VerticalFlip** → Flips images top-to-bottom with 50% probability.  
+    - **bbox_params** → Ensures bounding boxes and labels remain consistent after transformations.  
+    """
+  )
 
 
 
