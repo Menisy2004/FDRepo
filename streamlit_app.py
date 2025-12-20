@@ -213,6 +213,25 @@ if section == "Model Architecture":
         unsafe_allow_html=True
     )
 
+    st.subheader("VGG16 Architecture Diagram")
+
+st.markdown(
+    """
+    <p style='text-align: justify;'>
+    The following diagram illustrates the full VGG16 architecture, showing the stacked convolutional
+    layers, pooling layers, and the depth progression used for feature extraction.
+    </p>
+    """,
+    unsafe_allow_html=True
+)
+
+st.image(
+    "images/vgg16_architecture.png",
+    caption="VGG16 Architecture (Convolutional Backbone)",
+    use_column_width=True
+)
+
+
     st.markdown(
         """
         - **Convolutional Layers (3×3 Filters)**  
