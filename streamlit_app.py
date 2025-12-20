@@ -140,5 +140,5 @@ if section == "Dataset":
     unsafe_allow_html=True
     )
     st.subheader('Live Image from Webcam')
-    st.image('44d63787-dd02-11f0-8374-189341bd87be.jpg')
+    st.image('44d63787-dd02-11f0-8374-189341bd87be.jpg', width=300)
 
