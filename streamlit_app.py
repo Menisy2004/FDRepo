@@ -190,8 +190,8 @@ if section == "Dataset":
     unsafe_allow_html=True
     )
 
-   st.subheader("Code Snippet")
-   st.code(
+    st.subheader("Code Snippet")
+    st.code(
     """augmentor = alb.Compose([
     alb.RandomCrop(width=450, height=450),
     alb.HorizontalFlip(p=0.5),
@@ -205,8 +205,8 @@ if section == "Dataset":
     language="python"
     )
 
-   st.subheader("Explanation of Transformations")
-   st.markdown(
+    st.subheader("Explanation of Transformations")
+    st.markdown(
     """
     - **RandomCrop** → Crops images to a fixed size (450×450), focusing on different regions.  
     - **HorizontalFlip** → Flips images left-to-right with 50% probability.  
