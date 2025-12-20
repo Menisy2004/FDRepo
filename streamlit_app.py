@@ -158,7 +158,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
    )
-   st.code("""
+st.code("""
    for folder in ['train','test','val']:
     for file in os.listdir(os.path.join('data', folder, 'images')):
         
