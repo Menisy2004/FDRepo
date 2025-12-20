@@ -33,6 +33,42 @@ if section == "Introduction":
 
 if section == "Dataset":
     st.header("Tools for Dataset Generation")
+    st.markdown("""
+    <p style='text-align: justify;'>
+    To build and train the face detection model, several essential libraries were installed. 
+    These tools provide functionality for dataset preparation, deep learning, image processing, 
+    visualization, and augmentation.
+    </p>
+)
+    st.subheader("Installation")
+st.code("!pip install labelme tensorflow opencv-python matplotlib albumentations", language="bash")
+
+# Library descriptions
+st.subheader("Library Descriptions")
+
+st.markdown("""
+- **Labelme**  
+  A graphical image annotation tool used to create bounding boxes, polygons, and masks for training datasets.  
+  In this project, it helps generate labeled data for supervised learning.
+
+- **TensorFlow**  
+  A powerful deep learning framework that provides the core infrastructure for building and training 
+  the VGG16‑based face detection model. It handles neural network layers, optimization, and GPU acceleration.
+
+- **OpenCV (opencv-python)**  
+  A computer vision library used for image preprocessing tasks such as resizing, color conversion, 
+  and drawing bounding boxes on detected faces.
+
+- **Matplotlib**  
+  A visualization library that allows plotting of training curves, accuracy graphs, 
+  and displaying sample detection results.
+
+- **Albumentations**  
+  A fast and flexible image augmentation library that improves model robustness by applying transformations 
+  such as rotation, flipping, scaling, and brightness adjustments to training images.
+""")
+
+    
 
 
 
