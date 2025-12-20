@@ -174,7 +174,7 @@ st.markdown(
     - **Validation Set (15 images)** → Used to fine-tune hyperparameters and prevent overfitting.  
     """
   )
-  st.subheader(Image Augmentation
+st.subheader(Image Augmentation
    
 
 
