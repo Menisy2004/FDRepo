@@ -3,12 +3,35 @@ import streamlit as st
 st.set_page_config(page_title='Face Detection Project', layout='wide')
 st.title('Face detection Model')
 
-menu = ["Introduction", "Dataset", "Model Architecture", "Training", "Results", "Live Demo", "Conclusion"]
-cols = st.columns(len(menu))
+st.markdown("""
+<style>
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #2c3e50;
+    padding: 10px;
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+.navbar a:hover {
+    color: #f39c12;
+}
+</style>
 
-for i, item in enumerate(menu):
-    if cols[i].button(item):
-        section = item
+<div class="navbar">
+    <a href="#intro">Introduction</a>
+    <a href="#dataset">Dataset</a>
+    <a href="#model">Model Architecture</a>
+    <a href="#training">Training</a>
+    <a href="#results">Results</a>
+    <a href="#demo">Live Demo</a>
+    <a href="#conclusion">Conclusion</a>
+</div>
+""", unsafe_allow_html=True)
+
 
 
 if section == "Introduction":
