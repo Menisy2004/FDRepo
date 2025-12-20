@@ -146,3 +146,216 @@ if section == "Dataset":
     st.markdown("""<p style='text-align: justify;'> Get into labelme to annotate images of dataset</p>""",unsafe_allow_html=True)
     st.image('i3.png',width=300,caption="Bounding box on human face")
 
+
+
+if section == "Model Architecture":
+
+    st.header("🧠 Convolutional Neural Networks (CNNs) – Background")
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        A Convolutional Neural Network (CNN) is a type of deep learning model specifically designed
+        to process image data. Unlike traditional neural networks, CNNs preserve the spatial structure
+        of images, allowing them to learn visual patterns such as edges, textures, shapes, and objects.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        CNNs work by applying small learnable filters (kernels) across an image. These filters detect
+        local patterns, and deeper layers combine simpler patterns into more complex features.
+        This hierarchical feature learning makes CNNs especially effective for computer vision tasks.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.header("🏗️ VGG16 Architecture")
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        VGG16 is a deep convolutional neural network architecture developed by the Visual Geometry Group
+        (VGG) at Oxford University. It is one of the most well-known and widely used CNN architectures
+        due to its simplicity, depth, and strong performance on image recognition tasks.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.subheader("Why VGG16?")
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        VGG16 is chosen in this project because it provides powerful feature extraction while maintaining
+        a simple and uniform architecture. It uses only 3×3 convolution filters and a consistent stacking
+        pattern, which makes it easy to understand, explain, and extend for custom tasks such as face detection.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.subheader("Core Building Blocks of VGG16")
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        The VGG16 architecture is composed of repeated blocks, each consisting of convolutional layers
+        followed by a pooling layer. These blocks gradually reduce spatial dimensions while increasing
+        feature depth.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.markdown(
+        """
+        - **Convolutional Layers (3×3 Filters)**  
+          These layers slide small filters over the image to detect local patterns such as edges,
+          corners, and textures. As the network goes deeper, the filters learn increasingly complex
+          visual features like eyes, noses, and facial contours.
+
+        - **ReLU Activation Function**  
+          After each convolution, the Rectified Linear Unit (ReLU) introduces non-linearity.
+          This allows the network to learn complex relationships and prevents vanishing gradients.
+
+        - **Max Pooling Layers (2×2)**  
+          Pooling layers reduce the spatial size of feature maps by selecting the maximum value
+          in a small region. This helps reduce computation, control overfitting, and make the model
+          robust to small translations in the image.
+        """
+    )
+
+    st.subheader("Depth and Feature Extraction")
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        VGG16 contains 16 weight layers, with depth increasing as spatial resolution decreases.
+        Early layers focus on low-level features such as edges, while deeper layers learn high-level
+        semantic information. By the final convolutional block, the network has a rich understanding
+        of the image content.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.header("🔄 Using VGG16 as a Feature Extractor")
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        In this project, VGG16 is used as a feature extractor rather than a classifier.
+        The fully connected layers originally designed for ImageNet classification are removed
+        by setting <code>include_top=False</code>.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        This allows the model to reuse the learned convolutional filters while adapting the network
+        to a new task: face detection. The output of the VGG16 backbone is a high-level feature map
+        that summarizes important visual information from the input image.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.header("📉 Global Max Pooling")
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        After feature extraction, Global Max Pooling is applied. This operation converts each feature
+        map into a single value by selecting the maximum activation. As a result, the spatial dimensions
+        are removed while preserving the most significant features detected by the network.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        Global Max Pooling produces a fixed-length feature vector regardless of image size,
+        making it ideal for connecting convolutional layers to fully connected layers.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.header("🎯 Multi-Task Model Architecture")
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        The extracted features from VGG16 are shared between two parallel output branches.
+        This design follows a multi-task learning approach, where a single backbone supports
+        multiple objectives.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.subheader("1️⃣ Face Classification Head")
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        The classification head determines whether a face is present in the image.
+        It consists of fully connected layers that analyze the extracted features and
+        output a single probability value using a sigmoid activation function.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.markdown(
+        """
+        - Output: Probability between 0 and 1  
+        - Purpose: Face presence detection (face / no face)
+        """
+    )
+
+    st.subheader("2️⃣ Bounding Box Regression Head")
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        The regression head predicts the location of the face by estimating four normalized
+        values representing the bounding box coordinates.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.markdown(
+        """
+        - Output format: [x_min, y_min, x_max, y_max]  
+        - Values are normalized to the range [0, 1]  
+        - Sigmoid activation ensures valid coordinate predictions
+        """
+    )
+
+    st.header("⚙️ Summary of the Architecture")
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        In summary, this model combines a pretrained VGG16 convolutional backbone with a
+        multi-task learning strategy. The shared feature extractor enables efficient and
+        accurate face detection, while the dual-head design allows simultaneous classification
+        and localization in a single forward pass.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
