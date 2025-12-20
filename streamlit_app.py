@@ -232,7 +232,7 @@ st.image(
 )
 
 
-    st.markdown(
+st.markdown(
         """
         - **Convolutional Layers (3×3 Filters)**  
           These layers slide small filters over the image to detect local patterns such as edges,
