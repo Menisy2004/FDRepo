@@ -4,16 +4,13 @@ st.set_page_config(page_title='Face Detection Project', layout='wide')
 st.title('Face detection Model')
 
 
-from streamlit_option_menu import option_menu
+menu = ["Introduction", "Dataset", "Model Architecture", "Training", "Results", "Live Demo", "Conclusion"]
+cols = st.columns(len(menu))
 
-with st.sidebar:
-    section = option_menu(
-        "Navigation",
-        ["Introduction", "Dataset", "Model Architecture", "Training", "Results", "Live Demo", "Conclusion"],
-        icons=["house", "database", "diagram-3", "gear", "bar-chart", "camera", "check2-circle"],
-        menu_icon="cast",
-        default_index=0,
-    )
+for i, item in enumerate(menu):
+    if cols[i].button(item):
+        section = item
+
 
 
 if section == "Introduction":
