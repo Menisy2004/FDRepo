@@ -110,7 +110,6 @@ if section == "Dataset":
         - **cv2 (OpenCV)**  
           The core library for computer vision tasks. Here, it connects to the webcam, 
           captures frames, and allows saving them as images for dataset creation.
-        rrrrrrrrrrrrrrrrrrrr
         """
     )
 
