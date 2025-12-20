@@ -140,5 +140,9 @@ if section == "Dataset":
     unsafe_allow_html=True
     )
     st.subheader('Live Image from Webcam')
-    st.image('44d63787-dd02-11f0-8374-189341bd87be.jpg', width=300)
+    st.image('44d63787-dd02-11f0-8374-189341bd87be.jpg', width=300, caption="Sample image from dataset")
+    st.subheader('Annotation')
+    st.code("""!labelme""",language="python")
+    st.markdown("""<p style='text-align: justify;'> Get into labelme to annotate images of dataset</p>""")
+    st.image('i3.png',width=300,caption="Bounding box on human face")
 
