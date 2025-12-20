@@ -237,7 +237,7 @@ if section == "Model Architecture":
 
     # VGG16 Architecture Image
     st.image(
-        "images/vgg16_architecture.png",
+        "vgg-16.bak.png",
         caption="VGG16 convolutional backbone",
         use_column_width=True
     )
