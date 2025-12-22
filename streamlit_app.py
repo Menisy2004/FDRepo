@@ -457,7 +457,7 @@ st.code(
 )
 
 st.subheader("📷 Training Results Snapshot")
-st.markdown("*(Insert training loss graph or TensorBoard screenshot here)*")
+st.image("res-1.jpeg")
 
 # --- Continue with previous visualization section ---
 st.header("📈 Training Performance Visualization")
@@ -512,4 +512,40 @@ st.markdown(
     - **Layout** → Three plots arranged horizontally using `ncols=3` and `figsize=(20,5)`.  
     """
 )
+st.image('res-2.jpeg')
+if section == "Conclusion":
+    st.header("🏁 Conclusion")
+
+    st.markdown(
+        """
+        <p style="text-align: justify;">
+        This project demonstrates the development of a <b>face detection system</b> using
+        deep learning and an interactive <b>Streamlit interface</b>.
+        The system covers the main stages of a computer vision pipeline, including
+        dataset collection, annotation, model training, and real-time face detection.
+        </p>
+
+        <p style="text-align: justify;">
+        A pretrained <b>VGG16</b> model was used as a feature extractor to improve accuracy
+        and reduce training time through transfer learning.
+        The model performs two tasks at the same time: detecting whether a face exists
+        and predicting the bounding box location.
+        </p>
+
+        <p style="text-align: justify;">
+        Data augmentation helped improve the model’s ability to handle different lighting
+        conditions and face positions.
+        Streamlit provided a simple and user-friendly interface that allows easy navigation
+        and live webcam testing.
+        </p>
+
+        <p style="text-align: justify;">
+        In conclusion, this project shows how deep learning can be applied to solve
+        real-world face detection problems.
+        Future improvements may include using larger datasets, detecting multiple faces,
+        or applying more advanced detection models.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
     
