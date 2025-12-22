@@ -457,7 +457,7 @@ st.code(
 )
 
 st.subheader("📷 Training Results Snapshot")
-st.image("res-1.jpeg")
+st.image("res-2.jpeg")
 
 # --- Continue with previous visualization section ---
 st.header("📈 Training Performance Visualization")
@@ -512,7 +512,7 @@ st.markdown(
     - **Layout** → Three plots arranged horizontally using `ncols=3` and `figsize=(20,5)`.  
     """
 )
-st.image('res-2.jpeg')
+st.image('res-1.jpeg')
 if section == "Conclusion":
     st.header("🏁 Conclusion")
 
