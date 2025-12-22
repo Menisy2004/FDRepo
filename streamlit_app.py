@@ -6,7 +6,7 @@ st.title('Face detection Model')
 
 section = st.sidebar.selectbox(
     "Navigate to section:",
-    ["Introduction", "Dataset", "Model Architecture", "Training", "Results", "Live Demo", "Conclusion"]
+    ["Introduction", "Dataset", "Model Architecture", "Training", "Live Demo", "Conclusion"]
 )
 
 
@@ -426,3 +426,58 @@ if section == "Model Architecture":
         unsafe_allow_html=True
     )
 
+if section == 'Training':
+
+    st.header("📈 Training Performance Visualization")
+    
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        After training the face detection model, we visualize its performance using three key loss metrics: 
+        <b>total loss</b>, <b>classification loss</b>, and <b>regression loss</b>. 
+        These graphs help evaluate how well the model is learning and generalizing to validation data.
+        </p>
+    
+        <p style='text-align: justify;'>
+        The following code generates three side-by-side line plots using Matplotlib. Each plot compares 
+        training loss and validation loss across epochs. This allows us to monitor convergence, detect 
+        overfitting, and assess the balance between classification and regression components.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+    
+    st.subheader("Code Snippet")
+    st.code(
+        """fig, ax = plt.subplots(ncols=3, figsize=(20,5))
+    
+    ax[0].plot(hist.history['total_loss'], color='teal', label='loss')
+    ax[0].plot(hist.history['val_total_loss'], color='orange', label='val loss')
+    ax[0].title.set_text('Loss')
+    ax[0].legend()
+    
+    ax[1].plot(hist.history['class_loss'], color='teal', label='class loss')
+    ax[1].plot(hist.history['val_class_loss'], color='orange', label='val class loss')
+    ax[1].title.set_text('Classification Loss')
+    ax[1].legend()
+    
+    ax[2].plot(hist.history['regress_loss'], color='teal', label='regress loss')
+    ax[2].plot(hist.history['val_regress_loss'], color='orange', label='val regress loss')
+    ax[2].title.set_text('Regression Loss')
+    ax[2].legend()
+    
+    plt.show()""",
+        language="python"
+    )
+    
+    st.subheader("Explanation of Graphs")
+    st.markdown(
+        """
+        - **Loss Plot** → Shows overall training and validation loss across epochs.  
+        - **Classification Loss Plot** → Tracks how well the model classifies face regions.  
+        - **Regression Loss Plot** → Measures accuracy of bounding box predictions.  
+        - **Color Coding** → Teal for training loss, orange for validation loss.  
+        - **Layout** → Three plots arranged horizontally using `ncols=3` and `figsize=(20,5)`.  
+        """
+    )
+    
