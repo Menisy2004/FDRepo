@@ -563,5 +563,5 @@ if section == "Live Demo":
         unsafe_allow_html=True
     )
 
-    st.video("videos/face_detection_demo.mp4")
+    st.video("Screen Recording 2025-12-22 210257.mp4")
 
