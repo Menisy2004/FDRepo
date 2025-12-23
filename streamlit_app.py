@@ -546,4 +546,22 @@ if section == "Conclusion":
         """,
         unsafe_allow_html=True
     )
-    
+
+
+if section == "Live Demo":
+
+    st.header("🎥 Live Face Detection Demo")
+
+    st.markdown(
+        """
+        <p style='text-align: justify;'>
+        The following video demonstrates the real-time face detection system in action.
+        The model processes each frame, predicts the presence of a face, and draws a
+        bounding box around the detected region when a face is identified.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.video("videos/face_detection_demo.mp4")
+
